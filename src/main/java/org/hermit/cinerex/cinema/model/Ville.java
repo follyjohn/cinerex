@@ -1,10 +1,19 @@
 package org.hermit.cinerex.cinema.model;
 
+import java.time.LocalDateTime;
+import java.util.Collection;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
 
 /**
  * Ville
@@ -18,13 +27,26 @@ public class Ville {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @Column(nullable = false)
     private String name;
 
+    @Column(nullable = true)
     private double longitude;
 
+    @Column(nullable = true)
     private double latitude;
 
+    @Column(nullable = true)
     private double altitude;
+
+    @CreationTimestamp
+    private LocalDateTime createdAt;
+
+    @UpdateTimestamp
+    private LocalDateTime updatedAt;
+
+    @OneToMany(mappedBy = "ville")
+    private Collection<Cinema> cinemas;
 
     public Ville() {
     }
@@ -83,6 +105,23 @@ public class Ville {
     public void setAltitude(double altitude) {
         this.altitude = altitude;
     }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public LocalDateTime getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(LocalDateTime updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
 
     
 }

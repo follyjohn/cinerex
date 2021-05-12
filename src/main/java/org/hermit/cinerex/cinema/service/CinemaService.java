@@ -13,7 +13,7 @@ public class CinemaService {
     @Autowired
     private CinemaRepository cinemaRepository;
 
-    public Optional<Cinema> getCinema(final long id) {
+    public Optional<Cinema> getCinema(final Long id) {
         return cinemaRepository.findById(id);
     }
 
@@ -21,7 +21,7 @@ public class CinemaService {
         return cinemaRepository.findAll();
     }
 
-    public void deleteCinema(final long id) {
+    public void deleteCinema(final Long id) {
         cinemaRepository.deleteById(id);
     }
 
