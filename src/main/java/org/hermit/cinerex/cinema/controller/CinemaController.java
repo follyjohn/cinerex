@@ -23,9 +23,6 @@ public class CinemaController {
     @Autowired
     private CinemaService cinemaService;
 
-    @Autowired 
-    private VilleService villeService;
-
     @GetMapping("/cinemas")
     public Iterable<Cinema> getAllCinema() {
         return cinemaService.getAllCinema();

@@ -55,7 +55,7 @@ public class VilleController {
             ville.setAltitude(newVille.getAltitude());
             return villeService.saveVille(ville);
         }).orElseGet(() -> {
-            // newVille.setId(id);
+            newVille.setId(id);
             return villeService.saveVille(newVille);
         });
     }
