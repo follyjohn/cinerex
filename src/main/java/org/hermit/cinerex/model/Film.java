@@ -1,6 +1,7 @@
 package org.hermit.cinerex.model;
 
 import java.time.LocalDateTime;
+import java.util.Collection;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -8,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
@@ -38,11 +40,15 @@ public class Film {
     @ManyToOne
     private Categorie categorie;
 
+    @OneToMany(mappedBy = "film")
+    private Collection<Projection> projections;
+
     @CreationTimestamp
     private LocalDateTime createdAt;
 
     @UpdateTimestamp
     private LocalDateTime updatedAt;
+
 
     public Film() {
     }

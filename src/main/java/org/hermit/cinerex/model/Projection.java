@@ -32,9 +32,8 @@ public class Projection {
     @ManyToOne
     private Film film;
 
-    @NotNull
     @ManyToOne
-    private Salle sale;
+    private Salle salle;
 
     @CreationTimestamp
     private LocalDateTime createdAt;

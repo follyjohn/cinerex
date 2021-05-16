@@ -1,11 +1,14 @@
 package org.hermit.cinerex.model;
 
 import java.time.LocalDateTime;
+import java.util.Collection;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
@@ -27,27 +30,34 @@ public class Place {
 
     private double latitude;
 
+    @OneToMany(mappedBy = "place")
+    private Collection<Tiket> tikets;
+
     @CreationTimestamp
     private LocalDateTime createdAt;
 
     @UpdateTimestamp
     private LocalDateTime updatedAt;
 
+    @ManyToOne
+    private Salle salle;
     
     public Place() {
     }
 
-    public Place(Long id, int numero, double longitude, double latitude) {
+    public Place(Long id, int numero, double longitude, double latitude, Salle salle) {
         this.id = id;
         this.numero = numero;
         this.longitude = longitude;
         this.latitude = latitude;
+        this.salle = salle;
     }
 
-    public Place(int numero, double longitude, double latitude) {
+    public Place(int numero, double longitude, double latitude, Salle salle) {
         this.numero = numero;
         this.longitude = longitude;
         this.latitude = latitude;
+        this.salle = salle;
     }
 
     public Long getId() {
