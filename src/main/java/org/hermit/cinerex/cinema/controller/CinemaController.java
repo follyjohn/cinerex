@@ -3,17 +3,15 @@ package org.hermit.cinerex.cinema.controller;
 import java.util.Optional;
 
 import org.hermit.cinerex.cinema.model.Cinema;
-import org.hermit.cinerex.cinema.model.Ville;
 import org.hermit.cinerex.cinema.service.CinemaService;
-import org.hermit.cinerex.cinema.service.VilleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RestController;
 
 
 
