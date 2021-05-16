@@ -50,20 +50,20 @@ public class Projection {
     public Projection() {
     }
 
-    public Projection(Date dateProjection, double prix, Film film, Salle sale, Seance seance) {
+    public Projection(Date dateProjection, double prix, Film film, Salle salle, Seance seance) {
         this.dateProjection = dateProjection;
         this.prix = prix;
         this.film = film;
-        this.sale = sale;
+        this.salle = salle;
         this.seance = seance;
     }
 
-    public Projection(Long id, Date dateProjection, double prix, Film film, Salle sale, Seance seance) {
+    public Projection(Long id, Date dateProjection, double prix, Film film, Salle salle, Seance seance) {
         this.id = id;
         this.dateProjection = dateProjection;
         this.prix = prix;
         this.film = film;
-        this.sale = sale;
+        this.salle = salle;
         this.seance = seance;
     }
 
@@ -100,11 +100,11 @@ public class Projection {
     }
 
     public Salle getSale() {
-        return sale;
+        return salle;
     }
 
-    public void setSale(Salle sale) {
-        this.sale = sale;
+    public void setSale(Salle salle) {
+        this.salle = salle;
     }
 
     public Collection<Tiket> getTikets() {
