@@ -70,74 +70,146 @@ public class Cinema {
         this.ville = ville;
     }
 
+    
+    /** 
+     * @return Long
+     */
     public Long getId() {
         return id;
     }
 
+    
+    /** 
+     * @param id
+     */
     public void setId(Long id) {
         this.id = id;
     }
 
+    
+    /** 
+     * @return String
+     */
     public String getName() {
         return name;
     }
 
+    
+    /** 
+     * @param name
+     */
     public void setName(String name) {
         this.name = name;
     }
 
+    
+    /** 
+     * @return double
+     */
     public double getLongitude() {
         return longitude;
     }
 
+    
+    /** 
+     * @param longitude
+     */
     public void setLongitude(double longitude) {
         this.longitude = longitude;
     }
 
+    
+    /** 
+     * @return double
+     */
     public double getLatitude() {
         return latitude;
     }
 
+    
+    /** 
+     * @param latitude
+     */
     public void setLatitude(double latitude) {
         this.latitude = latitude;
     }
 
+    
+    /** 
+     * @return double
+     */
     public double getAltitude() {
         return altitude;
     }
 
+    
+    /** 
+     * @param altitude
+     */
     public void setAltitude(double altitude) {
         this.altitude = altitude;
     }
 
+    
+    /** 
+     * @return int
+     */
     public int getNombreSalles() {
         return nombreSalles;
     }
 
+    
+    /** 
+     * @param nombreSalles
+     */
     public void setNombreSalles(int nombreSalles) {
         this.nombreSalles = nombreSalles;
     }
 
+    
+    /** 
+     * @return Ville
+     */
     public Ville getVille() {
         return ville;
     }
 
+    
+    /** 
+     * @param ville
+     */
     public void setVille(Ville ville) {
         this.ville = ville;
     }
 
+    
+    /** 
+     * @return LocalDateTime
+     */
     public LocalDateTime getCreatedAt() {
         return createdAt;
     }
 
+    
+    /** 
+     * @param createdAt
+     */
     public void setCreatedAt(LocalDateTime createdAt) {
         this.createdAt = createdAt;
     }
 
+    
+    /** 
+     * @return LocalDateTime
+     */
     public LocalDateTime getUpdatedAt() {
         return updatedAt;
     }
 
+    
+    /** 
+     * @param updatedAt
+     */
     public void setUpdatedAt(LocalDateTime updatedAt) {
         this.updatedAt = updatedAt;
     }

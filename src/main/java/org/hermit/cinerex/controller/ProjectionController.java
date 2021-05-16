@@ -21,17 +21,31 @@ public class ProjectionController {
     @Autowired
     private ProjectionService projectionService;
 
+    
+    /** 
+     * @return Iterable<Projection>
+     */
     @GetMapping("/projections")
     public Iterable<Projection> getAllProjection() {
         return projectionService.getAllProjection();
     }
 
+    
+    /** 
+     * @param projection
+     * @return String
+     */
     @PostMapping("/projections")
     public String createProjection(@RequestBody Projection projection) {
         projectionService.saveProjection(projection);
         return "Projection enregistre";
     }
 
+    
+    /** 
+     * @param id
+     * @return Projection
+     */
     @GetMapping(value = "projections/{id}")
     public Projection getProjection(@PathVariable Long id) {
         Optional<Projection> projection = projectionService.getProjection(id);
@@ -42,12 +56,23 @@ public class ProjectionController {
         }
     }
 
+    
+    /** 
+     * @param id
+     * @return String
+     */
     @DeleteMapping(value = "projections/{id}")
     public String deleteProjection(@PathVariable Long id) {
         projectionService.deleteProjection(id);
         return "Projection supprime";
     }
 
+    
+    /** 
+     * @param id
+     * @param newProjection
+     * @return Projection
+     */
     @PutMapping(value = "projections/{id}")
     public Projection putProjection(@PathVariable Long id, @RequestBody Projection newProjection) {
         return projectionService.getProjection(id).map(projection -> {

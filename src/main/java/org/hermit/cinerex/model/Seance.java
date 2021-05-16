@@ -15,6 +15,30 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
+
+/** 
+ * @return Long
+ */
+
+/** 
+ * @return Date
+ */
+
+/** 
+ * @return boolean
+ */
+
+/** 
+ * @return boolean
+ */
+
+/** 
+ * @return int
+ */
+
+/** 
+ * @return String
+ */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

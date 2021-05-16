@@ -34,18 +34,34 @@ public class Role {
         this.name = name;
     }
 
+    
+    /** 
+     * @return long
+     */
     public long getId() {
         return id;
     }
 
+    
+    /** 
+     * @param id
+     */
     public void setId(long id) {
         this.id = id;
     }
 
+    
+    /** 
+     * @return ERole
+     */
     public ERole getName() {
         return name;
     }
 
+    
+    /** 
+     * @param name
+     */
     public void setName(ERole name) {
         this.name = name;
     }

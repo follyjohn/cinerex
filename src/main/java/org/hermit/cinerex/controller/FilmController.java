@@ -21,17 +21,31 @@ public class FilmController {
     @Autowired
     private FilmService filmService;
 
+    
+    /** 
+     * @return Iterable<Film>
+     */
     @GetMapping("/films")
     public Iterable<Film> getAllFilm() {
         return filmService.getAllFilm();
     }
 
+    
+    /** 
+     * @param film
+     * @return String
+     */
     @PostMapping("/films")
     public String createFilm(@RequestBody Film film) {
         filmService.saveFilm(film);
         return "Film enregistre";
     }
 
+    
+    /** 
+     * @param id
+     * @return Film
+     */
     @GetMapping(value = "films/{id}")
     public Film getFilm(@PathVariable Long id) {
         Optional<Film> film = filmService.getFilm(id);
@@ -42,12 +56,23 @@ public class FilmController {
         }
     }
 
+    
+    /** 
+     * @param id
+     * @return String
+     */
     @DeleteMapping(value = "films/{id}")
     public String deleteFilm(@PathVariable Long id) {
         filmService.deleteFilm(id);
         return "Film supprime";
     }
 
+    
+    /** 
+     * @param id
+     * @param newFilm
+     * @return Film
+     */
     @PutMapping(value = "films/{id}")
     public Film putFilm(@PathVariable Long id, @RequestBody Film newFilm) {
         return filmService.getFilm(id).map(film -> {

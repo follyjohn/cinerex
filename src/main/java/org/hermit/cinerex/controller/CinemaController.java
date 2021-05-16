@@ -23,17 +23,31 @@ public class CinemaController {
     @Autowired
     private CinemaService cinemaService;
 
+    
+    /** 
+     * @return Iterable<Cinema>
+     */
     @GetMapping("/cinemas")
     public Iterable<Cinema> getAllCinema() {
         return cinemaService.getAllCinema();
     }
 
+    
+    /** 
+     * @param cinema
+     * @return String
+     */
     @PostMapping("/cinemas")
     public String createCinema(@RequestBody Cinema cinema) {
         cinemaService.saveCinema(cinema);
         return "Cinema enregistre";
     }
 
+    
+    /** 
+     * @param id
+     * @return Cinema
+     */
     @GetMapping(value="cinemas/{id}")
     public Cinema getCinema(@PathVariable Long id) {
         Optional<Cinema> cinema = cinemaService.getCinema(id);
@@ -44,12 +58,23 @@ public class CinemaController {
         }
     }
 
+    
+    /** 
+     * @param id
+     * @return String
+     */
     @DeleteMapping(value="cinemas/{id}")
     public String deleteCinema(@PathVariable Long id) {
         cinemaService.deleteCinema(id);
         return "Cinema supprime";
     }
 
+    
+    /** 
+     * @param id
+     * @param newCinema
+     * @return Cinema
+     */
     @PutMapping(value="cinemas/{id}")
     public Cinema putCinema(@PathVariable Long id, @RequestBody Cinema newCinema) {
         return cinemaService.getCinema(id).map(cinema -> {

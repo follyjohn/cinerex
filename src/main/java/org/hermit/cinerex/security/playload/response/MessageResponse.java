@@ -7,10 +7,18 @@ public class MessageResponse {
         this.message = message;
     }
 
+    
+    /** 
+     * @return String
+     */
     public String getMessage() {
         return message;
     }
 
+    
+    /** 
+     * @param message
+     */
     public void setMessage(String message) {
         this.message = message;
     }

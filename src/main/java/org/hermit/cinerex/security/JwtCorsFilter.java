@@ -19,6 +19,14 @@ import org.springframework.stereotype.Component;
 @Order(Ordered.HIGHEST_PRECEDENCE)
 public class JwtCorsFilter implements Filter{
 
+    
+    /** 
+     * @param req
+     * @param res
+     * @param chain
+     * @throws IOException
+     * @throws ServletException
+     */
     @Override
     public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain)
             throws IOException, ServletException {
@@ -37,6 +45,10 @@ public class JwtCorsFilter implements Filter{
         
     }
 
+     
+     /** 
+      * @param filterConfig
+      */
      @Override
     public void init(FilterConfig filterConfig) {
     }

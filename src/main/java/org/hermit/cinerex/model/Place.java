@@ -60,50 +60,98 @@ public class Place {
         this.salle = salle;
     }
 
+    
+    /** 
+     * @return Long
+     */
     public Long getId() {
         return id;
     }
 
+    
+    /** 
+     * @param id
+     */
     public void setId(Long id) {
         this.id = id;
     }
 
+    
+    /** 
+     * @return int
+     */
     public int getNumero() {
         return numero;
     }
 
+    
+    /** 
+     * @param numero
+     */
     public void setNumero(int numero) {
         this.numero = numero;
     }
 
+    
+    /** 
+     * @return double
+     */
     public double getLongitude() {
         return longitude;
     }
 
+    
+    /** 
+     * @param longitude
+     */
     public void setLongitude(double longitude) {
         this.longitude = longitude;
     }
 
+    
+    /** 
+     * @return double
+     */
     public double getLatitude() {
         return latitude;
     }
 
+    
+    /** 
+     * @param latitude
+     */
     public void setLatitude(double latitude) {
         this.latitude = latitude;
     }
 
+    
+    /** 
+     * @return LocalDateTime
+     */
     public LocalDateTime getCreatedAt() {
         return createdAt;
     }
 
+    
+    /** 
+     * @param createdAt
+     */
     public void setCreatedAt(LocalDateTime createdAt) {
         this.createdAt = createdAt;
     }
 
+    
+    /** 
+     * @return LocalDateTime
+     */
     public LocalDateTime getUpdatedAt() {
         return updatedAt;
     }
 
+    
+    /** 
+     * @param updatedAt
+     */
     public void setUpdatedAt(LocalDateTime updatedAt) {
         this.updatedAt = updatedAt;
     }

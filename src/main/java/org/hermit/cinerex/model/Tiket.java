@@ -65,58 +65,114 @@ public class Tiket {
         this.projection = projection;
     }
 
+    
+    /** 
+     * @return Long
+     */
     public Long getId() {
         return id;
     }
 
+    
+    /** 
+     * @param id
+     */
     public void setId(Long id) {
         this.id = id;
     }
 
+    
+    /** 
+     * @return String
+     */
     public String getNomClient() {
         return nomClient;
     }
 
+    
+    /** 
+     * @param nomClient
+     */
     public void setNomClient(String nomClient) {
         this.nomClient = nomClient;
     }
 
+    
+    /** 
+     * @return double
+     */
     public double getPrix() {
         return prix;
     }
 
+    
+    /** 
+     * @param prix
+     */
     public void setPrix(double prix) {
         this.prix = prix;
     }
 
+    
+    /** 
+     * @return int
+     */
     public int getCodePayement() {
         return codePayement;
     }
 
+    
+    /** 
+     * @param codePayement
+     */
     public void setCodePayement(int codePayement) {
         this.codePayement = codePayement;
     }
 
+    
+    /** 
+     * @return boolean
+     */
     public boolean isReserve() {
         return reserve;
     }
 
+    
+    /** 
+     * @param reserve
+     */
     public void setReserve(boolean reserve) {
         this.reserve = reserve;
     }
 
+    
+    /** 
+     * @return Place
+     */
     public Place getPlace() {
         return place;
     }
 
+    
+    /** 
+     * @param place
+     */
     public void setPlace(Place place) {
         this.place = place;
     }
 
+    
+    /** 
+     * @return Projection
+     */
     public Projection getProjection() {
         return projection;
     }
 
+    
+    /** 
+     * @param projection
+     */
     public void setProjection(Projection projection) {
         this.projection = projection;
     }

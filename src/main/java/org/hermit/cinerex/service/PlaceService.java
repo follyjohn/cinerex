@@ -13,18 +13,36 @@ public class PlaceService {
     @Autowired
     private PlaceRepository placeRepository;
 
+    
+    /** 
+     * @param id
+     * @return Optional<Place>
+     */
     public Optional<Place> getPlace(final Long id) {
         return placeRepository.findById(id);
     }
 
+    
+    /** 
+     * @return Iterable<Place>
+     */
     public Iterable<Place> getAllPlace() {
         return placeRepository.findAll();
     }
 
+    
+    /** 
+     * @param id
+     */
     public void deletePlace(final Long id) {
         placeRepository.deleteById(id);
     }
 
+    
+    /** 
+     * @param place
+     * @return Place
+     */
     public Place savePlace(Place place) {
         return placeRepository.save(place);
     }

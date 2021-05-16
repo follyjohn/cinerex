@@ -76,66 +76,130 @@ public class Film {
         this.categorie = categorie;
     }
 
+    
+    /** 
+     * @return Long
+     */
     public Long getId() {
         return id;
     }
 
+    
+    /** 
+     * @param id
+     */
     public void setId(Long id) {
         this.id = id;
     }
 
+    
+    /** 
+     * @return String
+     */
     public String getTitre() {
         return titre;
     }
 
+    
+    /** 
+     * @param titre
+     */
     public void setTitre(String titre) {
         this.titre = titre;
     }
 
+    
+    /** 
+     * @return double
+     */
     public double getDuree() {
         return duree;
     }
 
+    
+    /** 
+     * @param duree
+     */
     public void setDuree(double duree) {
         this.duree = duree;
     }
 
+    
+    /** 
+     * @return String
+     */
     public String getRealisateur() {
         return realisateur;
     }
 
+    
+    /** 
+     * @param realisateur
+     */
     public void setRealisateur(String realisateur) {
         this.realisateur = realisateur;
     }
 
+    
+    /** 
+     * @return String
+     */
     public String getDescription() {
         return description;
     }
 
+    
+    /** 
+     * @param description
+     */
     public void setDescription(String description) {
         this.description = description;
     }
 
+    
+    /** 
+     * @return String
+     */
     public String getPhoto() {
         return photo;
     }
 
+    
+    /** 
+     * @param photo
+     */
     public void setPhoto(String photo) {
         this.photo = photo;
     }
 
+    
+    /** 
+     * @return Date
+     */
     public Date getDateSortie() {
         return dateSortie;
     }
 
+    
+    /** 
+     * @param dateSortie
+     */
     public void setDateSortie(Date dateSortie) {
         this.dateSortie = dateSortie;
     }
 
+    
+    /** 
+     * @return Categorie
+     */
     public Categorie getCategorie() {
         return categorie;
     }
 
+    
+    /** 
+     * @param categorie
+     */
     public void setCategorie(Categorie categorie) {
         this.categorie = categorie;
     }

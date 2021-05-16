@@ -21,17 +21,31 @@ public class VilleController {
     @Autowired
     private VilleService villeService;
 
+    
+    /** 
+     * @return Iterable<Ville>
+     */
     @GetMapping("/villes")
     public Iterable<Ville> getAllVille(){
         return villeService.getAllVille();
     }
 
+    
+    /** 
+     * @param ville
+     * @return String
+     */
     @PostMapping("/villes")
     public String createVille(@RequestBody Ville ville){
         villeService.saveVille(ville);
         return "Ville enregistre";
     }
 
+    
+    /** 
+     * @param id
+     * @return Ville
+     */
     @GetMapping(value = "villes/{id}")
     public Ville getVille(@PathVariable Long id) {
         Optional<Ville> ville = villeService.getVille(id);
@@ -42,12 +56,23 @@ public class VilleController {
         }
     }
 
+    
+    /** 
+     * @param id
+     * @return String
+     */
     @DeleteMapping(value = "villes/{id}")
     public String deleteVille(@PathVariable Long id) {
         villeService.deleteVille(id);
         return "Ville supprime";
     }
 
+    
+    /** 
+     * @param id
+     * @param newVille
+     * @return Ville
+     */
     @PutMapping(value = "villes/{id}")
     public Ville putVille(@PathVariable Long id, @RequestBody Ville newVille) {
         return villeService.getVille(id).map(ville -> {

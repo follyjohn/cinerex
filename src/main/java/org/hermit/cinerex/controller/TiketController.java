@@ -21,17 +21,31 @@ public class TiketController {
     @Autowired
     private TiketService tiketService;
 
+    
+    /** 
+     * @return Iterable<Tiket>
+     */
     @GetMapping("/tikets")
     public Iterable<Tiket> getAllTiket() {
         return tiketService.getAllTiket();
     }
 
+    
+    /** 
+     * @param tiket
+     * @return String
+     */
     @PostMapping("/tikets")
     public String createTiket(@RequestBody Tiket tiket) {
         tiketService.saveTiket(tiket);
         return "Tiket enregistre";
     }
 
+    
+    /** 
+     * @param id
+     * @return Tiket
+     */
     @GetMapping(value = "tikets/{id}")
     public Tiket getTiket(@PathVariable Long id) {
         Optional<Tiket> tiket = tiketService.getTiket(id);
@@ -42,12 +56,23 @@ public class TiketController {
         }
     }
 
+    
+    /** 
+     * @param id
+     * @return String
+     */
     @DeleteMapping(value = "tikets/{id}")
     public String deleteTiket(@PathVariable Long id) {
         tiketService.deleteTiket(id);
         return "Tiket supprime";
     }
 
+    
+    /** 
+     * @param id
+     * @param newTiket
+     * @return Tiket
+     */
     @PutMapping(value = "tikets/{id}")
     public Tiket putTiket(@PathVariable Long id, @RequestBody Tiket newTiket) {
         return tiketService.getTiket(id).map(tiket -> {

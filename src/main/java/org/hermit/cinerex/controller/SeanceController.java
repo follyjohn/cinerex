@@ -21,17 +21,31 @@ public class SeanceController {
     @Autowired
     public SeanceService seanceService;
 
+    
+    /** 
+     * @return Iterable<Seance>
+     */
     @GetMapping("/seances")
     public Iterable<Seance> getAllSeance() {
         return seanceService.getAllSeance();
     }
 
+    
+    /** 
+     * @param seance
+     * @return String
+     */
     @PostMapping("/seances")
     public String createSeance(@RequestBody Seance seance) {
         seanceService.saveSeance(seance);
         return "Seance enregistre";
     }
 
+    
+    /** 
+     * @param id
+     * @return Seance
+     */
     @GetMapping(value = "seances/{id}")
     public Seance getSeance(@PathVariable Long id) {
         Optional<Seance> seance = seanceService.getSeance(id);
@@ -42,12 +56,23 @@ public class SeanceController {
         }
     }
 
+    
+    /** 
+     * @param id
+     * @return String
+     */
     @DeleteMapping(value = "seances/{id}")
     public String deleteSeance(@PathVariable Long id) {
         seanceService.deleteSeance(id);
         return "Seance supprime";
     }
 
+    
+    /** 
+     * @param id
+     * @param newSeance
+     * @return Seance
+     */
     @PutMapping(value = "seances/{id}")
     public Seance putSeance(@PathVariable Long id, @RequestBody Seance newSeance) {
         return seanceService.getSeance(id).map(seance -> {

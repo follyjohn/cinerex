@@ -20,50 +20,98 @@ public class JwtResponse {
     }
 
 
+    
+    /** 
+     * @return String
+     */
     public String getToken() {
         return token;
     }
 
+    
+    /** 
+     * @param token
+     */
     public void setToken(String token) {
         this.token = token;
     }
 
+    
+    /** 
+     * @return String
+     */
     public String getType() {
         return type;
     }
 
+    
+    /** 
+     * @param type
+     */
     public void setType(String type) {
         this.type = type;
     }
 
+    
+    /** 
+     * @return Long
+     */
     public Long getId() {
         return id;
     }
 
+    
+    /** 
+     * @param id
+     */
     public void setId(Long id) {
         this.id = id;
     }
 
+    
+    /** 
+     * @return String
+     */
     public String getUsername() {
         return username;
     }
 
+    
+    /** 
+     * @param username
+     */
     public void setUsername(String username) {
         this.username = username;
     }
 
+    
+    /** 
+     * @return String
+     */
     public String getEmail() {
         return email;
     }
 
+    
+    /** 
+     * @param email
+     */
     public void setEmail(String email) {
         this.email = email;
     }
 
+    
+    /** 
+     * @return List<String>
+     */
     public List<String> getRoles() {
         return roles;
     }
 
+    
+    /** 
+     * @param roles
+     */
     public void setRoles(List<String> roles) {
         this.roles = roles;
     }

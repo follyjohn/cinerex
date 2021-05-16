@@ -62,34 +62,66 @@ public class Salle {
         this.cinema = cinema;
     }
 
+    
+    /** 
+     * @return Long
+     */
     public Long getId() {
         return id;
     }
 
+    
+    /** 
+     * @param id
+     */
     public void setId(Long id) {
         this.id = id;
     }
 
+    
+    /** 
+     * @return String
+     */
     public String getName() {
         return name;
     }
 
+    
+    /** 
+     * @param name
+     */
     public void setName(String name) {
         this.name = name;
     }
 
+    
+    /** 
+     * @return int
+     */
     public int getNombreSalles() {
         return nombrePlace;
     }
 
+    
+    /** 
+     * @param nombrePlace
+     */
     public void setNombreSalles(int nombrePlace) {
         this.nombrePlace = nombrePlace;
     }
 
+    
+    /** 
+     * @return Cinema
+     */
     public Cinema getCinema() {
         return cinema;
     }
 
+    
+    /** 
+     * @param cinema
+     */
     public void setCinema(Cinema cinema) {
         this.cinema = cinema;
     }

@@ -21,17 +21,31 @@ public class PlaceController {
     @Autowired
     private PlaceService placeService;
 
+    
+    /** 
+     * @return Iterable<Place>
+     */
     @GetMapping("/places")
     public Iterable<Place> getAllPlace() {
         return placeService.getAllPlace();
     }
 
+    
+    /** 
+     * @param place
+     * @return String
+     */
     @PostMapping("/places")
     public String createPlace(@RequestBody Place place) {
         placeService.savePlace(place);
         return "Place enregistre";
     }
 
+    
+    /** 
+     * @param id
+     * @return Place
+     */
     @GetMapping(value = "places/{id}")
     public Place getPlace(@PathVariable Long id) {
         Optional<Place> place = placeService.getPlace(id);
@@ -42,12 +56,23 @@ public class PlaceController {
         }
     }
 
+    
+    /** 
+     * @param id
+     * @return String
+     */
     @DeleteMapping(value = "places/{id}")
     public String deletePlace(@PathVariable Long id) {
         placeService.deletePlace(id);
         return "Place supprime";
     }
 
+    
+    /** 
+     * @param id
+     * @param newPlace
+     * @return Place
+     */
     @PutMapping(value = "places/{id}")
     public Place putPlace(@PathVariable Long id, @RequestBody Place newPlace) {
         return placeService.getPlace(id).map(place -> {

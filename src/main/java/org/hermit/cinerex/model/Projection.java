@@ -67,54 +67,106 @@ public class Projection {
         this.seance = seance;
     }
 
+    
+    /** 
+     * @return Long
+     */
     public Long getId() {
         return id;
     }
 
+    
+    /** 
+     * @param id
+     */
     public void setId(Long id) {
         this.id = id;
     }
 
+    
+    /** 
+     * @return Date
+     */
     public Date getDateProjection() {
         return dateProjection;
     }
 
+    
+    /** 
+     * @param dateProjection
+     */
     public void setDateProjection(Date dateProjection) {
         this.dateProjection = dateProjection;
     }
 
+    
+    /** 
+     * @return double
+     */
     public double getPrix() {
         return prix;
     }
 
+    
+    /** 
+     * @param prix
+     */
     public void setPrix(double prix) {
         this.prix = prix;
     }
 
+    
+    /** 
+     * @return Film
+     */
     public Film getFilm() {
         return film;
     }
 
+    
+    /** 
+     * @param film
+     */
     public void setFilm(Film film) {
         this.film = film;
     }
 
+    
+    /** 
+     * @return Salle
+     */
     public Salle getSale() {
         return salle;
     }
 
+    
+    /** 
+     * @param salle
+     */
     public void setSale(Salle salle) {
         this.salle = salle;
     }
 
+    
+    /** 
+     * @return Collection<Tiket>
+     */
     public Collection<Tiket> getTikets() {
         return tikets;
     }
 
+    
+    /** 
+     * @return Seance
+     */
     public Seance getSeance() {
         return seance;
     }
 
+    
+    /** 
+     * @param seance
+     */
     public void setSeance(Seance seance) {
         this.seance = seance;
     }

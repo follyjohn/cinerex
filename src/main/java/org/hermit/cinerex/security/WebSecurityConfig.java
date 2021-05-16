@@ -32,21 +32,39 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
     @Autowired
     private JwtAuthEntryPoint unauthorizedHandler;
 
+    
+    /** 
+     * @return AuthTokenFilter
+     */
     @Bean
     public AuthTokenFilter authenticationJwtTokenFilter() {
         return new AuthTokenFilter();
     }
 
+    
+    /** 
+     * @param authenticationManagerBuilder
+     * @throws Exception
+     */
     @Override
     public void configure(AuthenticationManagerBuilder authenticationManagerBuilder) throws Exception {
         authenticationManagerBuilder.userDetailsService(jwtUserDetailsService).passwordEncoder(passwordEncoder());
     }
 
+    
+    /** 
+     * @return PasswordEncoder
+     */
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
 
+    
+    /** 
+     * @return AuthenticationManager
+     * @throws Exception
+     */
     @Override
     @Bean
     public AuthenticationManager authenticationManagerBean() throws Exception {
@@ -54,6 +72,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
     }
 
    
+    
+    /** 
+     * @param http
+     * @throws Exception
+     */
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.cors().and().csrf().disable().exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()

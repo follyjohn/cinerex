@@ -43,6 +43,11 @@ public class JwtUserDetail implements UserDetails {
         this.authorities = authorities;
     }
 
+    
+    /** 
+     * @param user
+     * @return JwtUserDetail
+     */
     public static JwtUserDetail build(User user) {
         List<GrantedAuthority> authorities = user.getRoles().stream()
                 .map(role -> new SimpleGrantedAuthority(role.getName().name())).collect(Collectors.toList());
@@ -51,58 +56,107 @@ public class JwtUserDetail implements UserDetails {
 
     }
     
+    
+    /** 
+     * @return Long
+     */
     public Long getId() {
         return id;
     }
 
+    
+    /** 
+     * @param id
+     */
     public void setId(Long id) {
         this.id = id;
     }
 
+    
+    /** 
+     * @return String
+     */
     public String getEmail() {
         return email;
     }
 
+    
+    /** 
+     * @param email
+     */
     public void setEmail(String email) {
         this.email = email;
     }
 
+    
+    /** 
+     * @return Collection<? extends GrantedAuthority>
+     */
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return authorities;
     }
 
     
+    
+    /** 
+     * @return String
+     */
     @Override
     public String getPassword() {
         return password;
     }
 
+    
+    /** 
+     * @return String
+     */
     @Override
     public String getUsername() {
         return username;
     }
 
+    
+    /** 
+     * @return boolean
+     */
     @Override
     public boolean isAccountNonExpired() {
         return true;
     }
 
+    
+    /** 
+     * @return boolean
+     */
     @Override
     public boolean isAccountNonLocked() {
         return true;
     }
 
+    
+    /** 
+     * @return boolean
+     */
     @Override
     public boolean isCredentialsNonExpired() {
         return true;
     }
 
+    
+    /** 
+     * @return boolean
+     */
     @Override
     public boolean isEnabled() {
         return true;
     }
 
+    
+    /** 
+     * @param object
+     * @return boolean
+     */
     public boolean equals(Object object) {
         if (this == object)
             return true;
@@ -116,6 +170,10 @@ public class JwtUserDetail implements UserDetails {
                 && java.util.Objects.equals(authorities, that.authorities);
     }
 
+    
+    /** 
+     * @return int
+     */
     public int hashCode() {
         return java.util.Objects.hash(super.hashCode(), id, username, email, password, authorities);
     }
