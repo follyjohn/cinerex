@@ -15,21 +15,28 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotNull;
 
 
 @Entity
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-@Table(name = "users", uniqueConstraints = { @UniqueConstraint(columnNames = "username"), @UniqueConstraint(columnNames = "email") })
+@Inheritance(strategy = InheritanceType.JOINED)
+@Table(name = "users", uniqueConstraints = { @UniqueConstraint(columnNames = "username"),
+        @UniqueConstraint(columnNames = "email") })
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @NotNull
     private String username;
 
+    @Email
+    @NotNull
     private String email;
 
+    @NotNull
     private String password;
 
     @ManyToMany(fetch = FetchType.EAGER)
@@ -100,6 +107,4 @@ public class User {
         this.roles = roles;
     }
 
-    
-    
 }

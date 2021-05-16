@@ -1,5 +1,6 @@
 package org.hermit.cinerex.model;
 
+import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.Date;
 
@@ -10,6 +11,10 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 @Entity
 @Table(name = "projections")
@@ -23,11 +28,19 @@ public class Projection {
 
     private double prix;
 
+    @NotNull
     @ManyToOne
     private Film film;
 
+    @NotNull
     @ManyToOne
     private Salle sale;
+
+    @CreationTimestamp
+    private LocalDateTime createdAt;
+
+    @UpdateTimestamp
+    private LocalDateTime updatedAt;
 
     @OneToMany(mappedBy = "projection")
     private Collection<Tiket> tikets;

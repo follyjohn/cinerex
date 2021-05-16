@@ -3,13 +3,13 @@ package org.hermit.cinerex.model;
 import java.time.LocalDateTime;
 import java.util.Collection;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -27,16 +27,16 @@ public class Ville {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(nullable = false)
+    @NotNull
     private String name;
 
-    @Column(nullable = true)
+    @NotNull
     private double longitude;
 
-    @Column(nullable = true)
+    @NotNull
     private double latitude;
 
-    @Column(nullable = true)
+    @NotNull
     private double altitude;
 
     @CreationTimestamp

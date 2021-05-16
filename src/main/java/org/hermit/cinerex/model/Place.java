@@ -2,12 +2,12 @@ package org.hermit.cinerex.model;
 
 import java.time.LocalDateTime;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -20,12 +20,11 @@ public class Place {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     
+    @NotNull
     private int numero;
 
-    @Column(nullable = true)
     private double longitude;
 
-    @Column(nullable = true)
     private double latitude;
 
     @CreationTimestamp
