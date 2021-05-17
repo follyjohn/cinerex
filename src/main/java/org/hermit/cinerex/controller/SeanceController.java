@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/seances")
 public class SeanceController {
     
     @Autowired
@@ -25,7 +25,7 @@ public class SeanceController {
     /** 
      * @return Iterable<Seance>
      */
-    @GetMapping("/seances")
+    @GetMapping("/")
     public Iterable<Seance> getAllSeance() {
         return seanceService.getAllSeance();
     }
@@ -35,7 +35,7 @@ public class SeanceController {
      * @param seance
      * @return String
      */
-    @PostMapping("/seances")
+    @PostMapping("/")
     public String createSeance(@RequestBody Seance seance) {
         seanceService.saveSeance(seance);
         return "Seance enregistre";
@@ -46,7 +46,7 @@ public class SeanceController {
      * @param id
      * @return Seance
      */
-    @GetMapping(value = "seances/{id}")
+    @GetMapping(value = "/{id}")
     public Seance getSeance(@PathVariable Long id) {
         Optional<Seance> seance = seanceService.getSeance(id);
         if (seance.isPresent()) {
@@ -61,7 +61,7 @@ public class SeanceController {
      * @param id
      * @return String
      */
-    @DeleteMapping(value = "seances/{id}")
+    @DeleteMapping(value = "/{id}")
     public String deleteSeance(@PathVariable Long id) {
         seanceService.deleteSeance(id);
         return "Seance supprime";
@@ -73,7 +73,7 @@ public class SeanceController {
      * @param newSeance
      * @return Seance
      */
-    @PutMapping(value = "seances/{id}")
+    @PutMapping(value = "/{id}")
     public Seance putSeance(@PathVariable Long id, @RequestBody Seance newSeance) {
         return seanceService.getSeance(id).map(seance -> {
             seance.setDateDebut(newSeance.getDateDebut());

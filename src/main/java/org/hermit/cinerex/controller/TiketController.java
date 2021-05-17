@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/tikets")
 public class TiketController {
     
     @Autowired
@@ -25,7 +25,7 @@ public class TiketController {
     /** 
      * @return Iterable<Tiket>
      */
-    @GetMapping("/tikets")
+    @GetMapping("/")
     public Iterable<Tiket> getAllTiket() {
         return tiketService.getAllTiket();
     }
@@ -35,7 +35,7 @@ public class TiketController {
      * @param tiket
      * @return String
      */
-    @PostMapping("/tikets")
+    @PostMapping("/")
     public String createTiket(@RequestBody Tiket tiket) {
         tiketService.saveTiket(tiket);
         return "Tiket enregistre";
@@ -46,7 +46,7 @@ public class TiketController {
      * @param id
      * @return Tiket
      */
-    @GetMapping(value = "tikets/{id}")
+    @GetMapping(value = "/{id}")
     public Tiket getTiket(@PathVariable Long id) {
         Optional<Tiket> tiket = tiketService.getTiket(id);
         if (tiket.isPresent()) {
@@ -61,7 +61,7 @@ public class TiketController {
      * @param id
      * @return String
      */
-    @DeleteMapping(value = "tikets/{id}")
+    @DeleteMapping(value = "/{id}")
     public String deleteTiket(@PathVariable Long id) {
         tiketService.deleteTiket(id);
         return "Tiket supprime";
@@ -73,7 +73,7 @@ public class TiketController {
      * @param newTiket
      * @return Tiket
      */
-    @PutMapping(value = "tikets/{id}")
+    @PutMapping(value = "/{id}")
     public Tiket putTiket(@PathVariable Long id, @RequestBody Tiket newTiket) {
         return tiketService.getTiket(id).map(tiket -> {
             tiket.setCodePayement(newTiket.getCodePayement());

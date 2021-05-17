@@ -2,6 +2,8 @@ package org.hermit.cinerex.controller;
 
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 import org.hermit.cinerex.model.Ville;
 import org.hermit.cinerex.service.VilleService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/villes")
 public class VilleController {
     
     @Autowired
@@ -25,7 +27,7 @@ public class VilleController {
     /** 
      * @return Iterable<Ville>
      */
-    @GetMapping("/villes")
+    @GetMapping("/")
     public Iterable<Ville> getAllVille(){
         return villeService.getAllVille();
     }
@@ -35,8 +37,8 @@ public class VilleController {
      * @param ville
      * @return String
      */
-    @PostMapping("/villes")
-    public String createVille(@RequestBody Ville ville){
+    @PostMapping("/")
+    public String createVille(@Valid @RequestBody Ville ville){
         villeService.saveVille(ville);
         return "Ville enregistre";
     }
@@ -46,7 +48,7 @@ public class VilleController {
      * @param id
      * @return Ville
      */
-    @GetMapping(value = "villes/{id}")
+    @GetMapping(value = "/{id}")
     public Ville getVille(@PathVariable Long id) {
         Optional<Ville> ville = villeService.getVille(id);
         if (ville.isPresent()) {
@@ -61,7 +63,7 @@ public class VilleController {
      * @param id
      * @return String
      */
-    @DeleteMapping(value = "villes/{id}")
+    @DeleteMapping(value = "/{id}")
     public String deleteVille(@PathVariable Long id) {
         villeService.deleteVille(id);
         return "Ville supprime";
@@ -73,7 +75,7 @@ public class VilleController {
      * @param newVille
      * @return Ville
      */
-    @PutMapping(value = "villes/{id}")
+    @PutMapping(value = "/{id}")
     public Ville putVille(@PathVariable Long id, @RequestBody Ville newVille) {
         return villeService.getVille(id).map(ville -> {
             ville.setName(newVille.getName());

@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/cinemas")
 public class CinemaController {
     
     @Autowired
@@ -27,7 +27,7 @@ public class CinemaController {
     /** 
      * @return Iterable<Cinema>
      */
-    @GetMapping("/cinemas")
+    @GetMapping("/")
     public Iterable<Cinema> getAllCinema() {
         return cinemaService.getAllCinema();
     }
@@ -37,7 +37,7 @@ public class CinemaController {
      * @param cinema
      * @return String
      */
-    @PostMapping("/cinemas")
+    @PostMapping("/")
     public String createCinema(@RequestBody Cinema cinema) {
         cinemaService.saveCinema(cinema);
         return "Cinema enregistre";
@@ -48,7 +48,7 @@ public class CinemaController {
      * @param id
      * @return Cinema
      */
-    @GetMapping(value="cinemas/{id}")
+    @GetMapping(value="/{id}")
     public Cinema getCinema(@PathVariable Long id) {
         Optional<Cinema> cinema = cinemaService.getCinema(id);
         if(cinema.isPresent()){
@@ -63,7 +63,7 @@ public class CinemaController {
      * @param id
      * @return String
      */
-    @DeleteMapping(value="cinemas/{id}")
+    @DeleteMapping(value="/{id}")
     public String deleteCinema(@PathVariable Long id) {
         cinemaService.deleteCinema(id);
         return "Cinema supprime";
@@ -75,7 +75,7 @@ public class CinemaController {
      * @param newCinema
      * @return Cinema
      */
-    @PutMapping(value="cinemas/{id}")
+    @PutMapping(value="/{id}")
     public Cinema putCinema(@PathVariable Long id, @RequestBody Cinema newCinema) {
         return cinemaService.getCinema(id).map(cinema -> {
             cinema.setName(newCinema.getName());

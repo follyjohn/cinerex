@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/categories")
 public class CategorieController {
 
     @Autowired
@@ -25,7 +25,7 @@ public class CategorieController {
     /** 
      * @return Iterable<Categorie>
      */
-    @GetMapping("/categories")
+    @GetMapping("/")
     public Iterable<Categorie> getAllCategorie() {
         return categorieService.getAllCategorie();
     }
@@ -35,7 +35,7 @@ public class CategorieController {
      * @param categories
      * @return String
      */
-    @PostMapping("/categories")
+    @PostMapping("/")
     public String createCategorie(@RequestBody Categorie categories) {
         categorieService.saveCategorie(categories);
         return "Categorie enregistre";
@@ -46,7 +46,7 @@ public class CategorieController {
      * @param id
      * @return Categorie
      */
-    @GetMapping(value = "categories/{id}")
+    @GetMapping(value = "/{id}")
     public Categorie getCategorie(@PathVariable Long id) {
         Optional<Categorie> categories = categorieService.getCategorie(id);
         if (categories.isPresent()) {
@@ -61,7 +61,7 @@ public class CategorieController {
      * @param id
      * @return String
      */
-    @DeleteMapping(value = "categories/{id}")
+    @DeleteMapping(value = "/{id}")
     public String deleteCategorie(@PathVariable Long id) {
         categorieService.deleteCategorie(id);
         return "Categorie supprime";
@@ -73,7 +73,7 @@ public class CategorieController {
      * @param newCategorie
      * @return Categorie
      */
-    @PutMapping(value = "categories/{id}")
+    @PutMapping(value = "/{id}")
     public Categorie putCategorie(@PathVariable Long id, @RequestBody Categorie newCategorie) {
         return categorieService.getCategorie(id).map(categories -> {
             categories.setName(newCategorie.getName());

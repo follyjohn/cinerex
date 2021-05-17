@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/films")
 public class FilmController {
     
     @Autowired
@@ -25,7 +25,7 @@ public class FilmController {
     /** 
      * @return Iterable<Film>
      */
-    @GetMapping("/films")
+    @GetMapping("/")
     public Iterable<Film> getAllFilm() {
         return filmService.getAllFilm();
     }
@@ -35,7 +35,7 @@ public class FilmController {
      * @param film
      * @return String
      */
-    @PostMapping("/films")
+    @PostMapping("/")
     public String createFilm(@RequestBody Film film) {
         filmService.saveFilm(film);
         return "Film enregistre";
@@ -46,7 +46,7 @@ public class FilmController {
      * @param id
      * @return Film
      */
-    @GetMapping(value = "films/{id}")
+    @GetMapping(value = "/{id}")
     public Film getFilm(@PathVariable Long id) {
         Optional<Film> film = filmService.getFilm(id);
         if (film.isPresent()) {
@@ -61,7 +61,7 @@ public class FilmController {
      * @param id
      * @return String
      */
-    @DeleteMapping(value = "films/{id}")
+    @DeleteMapping(value = "/{id}")
     public String deleteFilm(@PathVariable Long id) {
         filmService.deleteFilm(id);
         return "Film supprime";
@@ -73,7 +73,7 @@ public class FilmController {
      * @param newFilm
      * @return Film
      */
-    @PutMapping(value = "films/{id}")
+    @PutMapping(value = "/{id}")
     public Film putFilm(@PathVariable Long id, @RequestBody Film newFilm) {
         return filmService.getFilm(id).map(film -> {
             film.setTitre(newFilm.getTitre());

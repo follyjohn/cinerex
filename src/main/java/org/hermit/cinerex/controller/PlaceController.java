@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/places")
 public class PlaceController {
     
     @Autowired
@@ -25,7 +25,7 @@ public class PlaceController {
     /** 
      * @return Iterable<Place>
      */
-    @GetMapping("/places")
+    @GetMapping("/")
     public Iterable<Place> getAllPlace() {
         return placeService.getAllPlace();
     }
@@ -35,7 +35,7 @@ public class PlaceController {
      * @param place
      * @return String
      */
-    @PostMapping("/places")
+    @PostMapping("/")
     public String createPlace(@RequestBody Place place) {
         placeService.savePlace(place);
         return "Place enregistre";
@@ -46,7 +46,7 @@ public class PlaceController {
      * @param id
      * @return Place
      */
-    @GetMapping(value = "places/{id}")
+    @GetMapping(value = "/{id}")
     public Place getPlace(@PathVariable Long id) {
         Optional<Place> place = placeService.getPlace(id);
         if (place.isPresent()) {
@@ -61,7 +61,7 @@ public class PlaceController {
      * @param id
      * @return String
      */
-    @DeleteMapping(value = "places/{id}")
+    @DeleteMapping(value = "/{id}")
     public String deletePlace(@PathVariable Long id) {
         placeService.deletePlace(id);
         return "Place supprime";
@@ -73,7 +73,7 @@ public class PlaceController {
      * @param newPlace
      * @return Place
      */
-    @PutMapping(value = "places/{id}")
+    @PutMapping(value = "/{id}")
     public Place putPlace(@PathVariable Long id, @RequestBody Place newPlace) {
         return placeService.getPlace(id).map(place -> {
             place.setNumero(newPlace.getNumero());

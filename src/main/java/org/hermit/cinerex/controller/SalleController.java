@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/salles")
 public class SalleController {
     
     @Autowired
@@ -25,7 +25,7 @@ public class SalleController {
     /** 
      * @return Iterable<Salle>
      */
-    @GetMapping("/salles")
+    @GetMapping("/")
     public Iterable<Salle> getAllSalle() {
         return salleService.getAllSalle();
     }
@@ -35,7 +35,7 @@ public class SalleController {
      * @param salle
      * @return String
      */
-    @PostMapping("/salles")
+    @PostMapping("/")
     public String createSalle(@RequestBody Salle salle) {
         salleService.saveSalle(salle);
         return "Salle enregistre";
@@ -46,7 +46,7 @@ public class SalleController {
      * @param id
      * @return Salle
      */
-    @GetMapping(value = "salles/{id}")
+    @GetMapping(value = "/{id}")
     public Salle getSalle(@PathVariable Long id) {
         Optional<Salle> salle = salleService.getSalle(id);
         if (salle.isPresent()) {
@@ -61,7 +61,7 @@ public class SalleController {
      * @param id
      * @return String
      */
-    @DeleteMapping(value = "salles/{id}")
+    @DeleteMapping(value = "/{id}")
     public String deleteSalle(@PathVariable Long id) {
         salleService.deleteSalle(id);
         return "Salle supprime";
@@ -73,7 +73,7 @@ public class SalleController {
      * @param newSalle
      * @return Salle
      */
-    @PutMapping(value = "salles/{id}")
+    @PutMapping(value = "/{id}")
     public Salle putSalle(@PathVariable Long id, @RequestBody Salle newSalle) {
         return salleService.getSalle(id).map(salle -> {
             salle.setName(newSalle.getName());

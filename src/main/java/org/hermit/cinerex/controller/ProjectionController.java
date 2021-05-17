@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/projections")
 public class ProjectionController {
     
     @Autowired
@@ -25,7 +25,7 @@ public class ProjectionController {
     /** 
      * @return Iterable<Projection>
      */
-    @GetMapping("/projections")
+    @GetMapping("/")
     public Iterable<Projection> getAllProjection() {
         return projectionService.getAllProjection();
     }
@@ -35,7 +35,7 @@ public class ProjectionController {
      * @param projection
      * @return String
      */
-    @PostMapping("/projections")
+    @PostMapping("/")
     public String createProjection(@RequestBody Projection projection) {
         projectionService.saveProjection(projection);
         return "Projection enregistre";
@@ -46,7 +46,7 @@ public class ProjectionController {
      * @param id
      * @return Projection
      */
-    @GetMapping(value = "projections/{id}")
+    @GetMapping(value = "/{id}")
     public Projection getProjection(@PathVariable Long id) {
         Optional<Projection> projection = projectionService.getProjection(id);
         if (projection.isPresent()) {
@@ -61,7 +61,7 @@ public class ProjectionController {
      * @param id
      * @return String
      */
-    @DeleteMapping(value = "projections/{id}")
+    @DeleteMapping(value = "/{id}")
     public String deleteProjection(@PathVariable Long id) {
         projectionService.deleteProjection(id);
         return "Projection supprime";
@@ -73,7 +73,7 @@ public class ProjectionController {
      * @param newProjection
      * @return Projection
      */
-    @PutMapping(value = "projections/{id}")
+    @PutMapping(value = "/{id}")
     public Projection putProjection(@PathVariable Long id, @RequestBody Projection newProjection) {
         return projectionService.getProjection(id).map(projection -> {
             projection.setFilm(newProjection.getFilm());
